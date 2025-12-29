@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>तुझ्यासाठी…</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:#fff;color:black;overflow:hidden;}
+section{
+  width:100vw;height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;text-align:center;padding:20px;
+  opacity:0;transition: opacity 1s;
+  position:absolute;top:0;left:0;
+}
+section.active{opacity:1;z-index:1;}
+img{max-width:90%;max-height:70vh;border-radius:20px;box-shadow:0 0 30px rgba(255,100,150,0.4);margin-bottom:20px;}
+button{margin-top:25px;padding:12px 30px;font-size:18px;border:none;border-radius:30px;background:linear-gradient(45deg,#ff5fa2,#ff87c2);color:white;cursor:pointer;}
+button:hover{transform:scale(1.05);}
+input{padding:12px;border-radius:10px;border:1px solid #ccc;font-size:16px;text-align:center;width:180px;}
+.hearts{position:fixed;width:100%;height:100%;pointer-events:none;overflow:hidden;}
+.heart{position:absolute;bottom:-10px;font-size:20px;animation: float 6s linear infinite;}
+@keyframes float{0%{transform:translateY(0);opacity:1;}100%{transform:translateY(-100vh);opacity:0;}}
+.fade-text{opacity:0;transition:opacity 1s;}
+.fade-text.show{opacity:1;}
+</style>
+</head>
+
+<body>
+
+<!-- Optional background music -->
+<audio autoplay loop>
+  <source src="bgm.mp3" type="audio/mpeg">
+</audio>
+<script>document.querySelector("audio").volume=0.2;</script>
+
+<div class="hearts"></div>
+
+<!-- PASSWORD PAGE -->
+<section class="active" id="p1" style="background: linear-gradient(135deg, #ffb3c6, #ffe6f0); color:black;">
+  <h2>हे सगळं फक्त तुझ्यासाठी… ❤️</h2>
+  <p style="margin-top:15px;opacity:0.8">
+तुझ्या आठवणींना आणि हसण्याला साजेसं काहीतरी.
+  </p>
+  <input id="pass" placeholder="पासवर्ड">
+  <button onclick="check()">पुढे</button>
+</section>
+
+<!-- PAGE 2 -->
+<section id="p2">
+  <img src="swarali1.jpg">
+  <p class="fade-text" id="txt2">
+  वाढदिवसाच्या खूप शुभेच्छा… 🎂  
+  <br><br>
+  आजचा दिवस खास आहे कारण तू जन्माला आलीस  
+  आणि माझ्या आयुष्यात कायमची जागा घेतलीस.
+  </p>
+  <button onclick="next(3)">पुढे</button>
+</section>
+
+<!-- PAGE 3 -->
+<section id="p3">
+  <p class="fade-text" id="txt3">
+  आठवणींचा प्रवास…  
+  लहानपणातल्या शाळेच्या मैदानातल्या खेळांपासून  
+  ते आपले गप्पा, लहान लहान वाद, हसणं आणि पळणं…  
+  <br><br>
+  तू आणि मी, शब्द नसतानाही समजून घेणं.
+  </p>
+  <button onclick="next(4)">पुढे</button>
+</section>
+
+<!-- PAGE 4 -->
+<section id="p4">
+  <img src="swarali2.jpg">
+  <p class="fade-text" id="txt4">
+  आठवण आहे ती पहिली नजर…  
+  न बोलता फक्त पाहणं.  
+  काही शब्द न बोलता, काही भावना जपल्या.  
+  <br><br>
+  कधी हात मारले, कधी हसले, कधी फक्त नजर.
+  </p>
+  <button onclick="next(5)">पुढे</button>
+</section>
+
+<!-- PAGE 5 -->
+<section id="p5">
+  <p class="fade-text" id="txt5">
+  आपण जवळ बसलो नाही,  
+  फार काही बोललो नाही,  
+  पण जे होतं, ते खरं होतं.  
+  <br><br>
+  काही गोष्टी अपूर्ण राहिल्या,  
+  तरी कमी नाही झाल्या.
+  </p>
+  <button onclick="next(6)">पुढे</button>
+</section>
+
+<!-- PAGE 6 -->
+<section id="p6">
+  <p class="fade-text" id="txt6">
+  आठवणींचा प्रवास…  
+  काही मजेशीर खेळ, काही अपूर्ण गप्पा,  
+  काही हसणं आणि थोडंसं राग.  
+  <br><br>
+  तू आणि मी, फक्त नजरांतून बोलणारे.
+  </p>
+  <button onclick="next(7)">पुढे</button>
+</section>
+
+<!-- PAGE 7 -->
+<section id="p7">
+  <img src="spm.jpg">
+  <p class="fade-text" id="txt7">
+  हा मी…  
+  <br><br>
+  फार काही मागत नाही, फार काही म्हणत नाही  
+  <br><br>
+  पण एक गोष्ट खरं आहे —  
+  तू माझ्या आयुष्यातील व्यक्ती आहेस,  
+  जी कधीच विसरली जाणार नाही.
+  </p>
+  <button onclick="next(8)">पुढे</button>
+</section>
+
+<!-- PAGE 8 -->
+<section id="p8">
+  <p class="fade-text" id="txt8">
+  वाढदिवसाच्या खूप शुभेच्छा! 🎉  
+  <br><br>
+  हा दिवस फक्त आनंदाचा, स्मरणांचा आणि प्रेमाचा आहे.  
+  <br><br>
+  तुला आज आणि नेहमी सुख, हास्य आणि प्रेम लाभो.
+  </p>
+  <button onclick="next(9)">पुढे</button>
+</section>
+
+<!-- FINAL PAGE -->
+<section id="p9">
+  <p class="fade-text" id="txt9" style="font-size:20px;line-height:2">
+  आठवणी ज्या आपल्याला कायम सोबत ठेवतात…  
+  त्या आठवणी तुझ्या आणि माझ्या या गोष्टी जपल्या आहेत.  
+  <br><br>
+  तू माझ्या आयुष्यातील व्यक्ती आहेस,  
+  जी कधीच विसरली जाणार नाही.  
+  <br><br>
+  काही कथा संपत नाहीत,  
+  त्या शांत होतात.  
+  <br><br>
+  आणि ही… तशीच एक आहे.  
+  <br><br><br>
+  — spm_09
+  </p>
+</section>
+
+<script>
+function next(n){
+  const sections=document.querySelectorAll('section');
+  sections.forEach(s=>s.classList.remove('active'));
+  const current=document.getElementById('p'+n);
+  current.classList.add('active');
+  fadeText(n);
+  if(n===9){setTimeout(()=>{},180000);} // final page hold ~3 minutes
+}
+
+function fadeText(n){
+  const txt=document.querySelector('#txt'+n);
+  if(txt){
+    txt.classList.remove('show');
+    setTimeout(()=>{txt.classList.add('show');},200);
+  }
+}
+
+function check(){
+  const val=document.getElementById('pass').value.trim();
+  if(val==="spm_09"){next(2);}
+  else{alert("चूक आहे. कृपया पुन्हा प्रयत्न करा.");}
+}
+
+function createHeart(){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerText="❤";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(10+Math.random()*20)+"px";
+  h.style.animationDuration=(4+Math.random()*4)+"s";
+  document.querySelector(".hearts").appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+}
+setInterval(createHeart,400);
+</script>
+
+</body>
+</html>
